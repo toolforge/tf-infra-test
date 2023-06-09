@@ -27,9 +27,9 @@ variable "db_size" {
   }
 }
 
-resource "openstack_db_instance_v1" "db_123" {
+resource "openstack_db_instance_v1" "postgresql" {
   region    = "${var.region[var.datacenter]}"
-  name      = "testlabs-123"
+  name      = "tf-postgresql"
   flavor_id = "${var.db_flavor_uuid[var.datacenter]}"
   size      = "${var.db_size[var.datacenter]}"
 
@@ -38,18 +38,72 @@ resource "openstack_db_instance_v1" "db_123" {
   }
 
   user {
-    name      = "testlabs-123"
+    name      = "testlabs"
     host      = "%"
     password  = "notapassword"
-    databases = ["testlabs-123"]
+    databases = ["tf-postgresql"]
   }
 
   database {
-    name     = "testlabs-123"
+    name     = "tf-postgresql"
+  }
+
+  datastore {
+    version = "12.7"
+    type    = "postgresql"
+  }
+}
+
+resource "openstack_db_instance_v1" "mysql" {
+  region    = "${var.region[var.datacenter]}"
+  name      = "tf-mysql"
+  flavor_id = "${var.db_flavor_uuid[var.datacenter]}"
+  size      = "${var.db_size[var.datacenter]}"
+
+  network {
+    uuid = "${var.network_uuid[var.datacenter]}"
+  }
+
+  user {
+    name      = "testlabs"
+    host      = "%"
+    password  = "notapassword"
+    databases = ["tf-mysql"]
+  }
+
+  database {
+    name     = "tf-mysql"
   }
 
   datastore {
     version = "5.7.29"
     type    = "mysql"
+  }
+}
+
+resource "openstack_db_instance_v1" "mariadb" {
+  region    = "${var.region[var.datacenter]}"
+  name      = "tf-mariadb"
+  flavor_id = "${var.db_flavor_uuid[var.datacenter]}"
+  size      = "${var.db_size[var.datacenter]}"
+
+  network {
+    uuid = "${var.network_uuid[var.datacenter]}"
+  }
+
+  user {
+    name      = "testlabs"
+    host      = "%"
+    password  = "notapassword"
+    databases = ["tf-mariadb"]
+  }
+
+  database {
+    name     = "tf-mariadb"
+  }
+
+  datastore {
+    version = "10.5.10"
+    type    = "mariadb"
   }
 }
