@@ -28,32 +28,32 @@ resource "openstack_containerinfra_clustertemplate_v1" "template_123" {
   }
 }
 
-resource "openstack_db_instance_v1" "db_123" {
-  region    = "${var.region[var.datacenter]}"
-  name      = "testlabs-123"
-  flavor_id = "${var.db_flavor_uuid[var.datacenter]}"
-  size      = "${var.db_size[var.datacenter]}"
-
-  network {
-    uuid = "${var.network_uuid[var.datacenter]}"
-  }
-
-  user {
-    name      = "testlabs-123"
-    host      = "%"
-    password  = "notapassword"
-    databases = ["testlabs-123"]
-  }
-
-  database {
-    name     = "testlabs-123"
-  }
-
-  datastore {
-    version = "5.7.29"
-    type    = "mysql"
-  }
-}
+#resource "openstack_db_instance_v1" "db_123" {
+#  region    = "${var.region[var.datacenter]}"
+#  name      = "testlabs-123"
+#  flavor_id = "${var.db_flavor_uuid[var.datacenter]}"
+#  size      = "${var.db_size[var.datacenter]}"
+#
+#  network {
+#    uuid = "${var.network_uuid[var.datacenter]}"
+#  }
+#
+#  user {
+#    name      = "testlabs-123"
+#    host      = "%"
+#    password  = "notapassword"
+#    databases = ["testlabs-123"]
+#  }
+#
+#  database {
+#    name     = "testlabs-123"
+#  }
+#
+#  datastore {
+#    version = "5.7.29"
+#    type    = "mysql"
+#  }
+#}
 
 resource "openstack_blockstorage_volume_v3" "volume" {
   region      = "${var.region[var.datacenter]}"
@@ -73,4 +73,5 @@ resource "openstack_compute_secgroup_v2" "secgroup" {
     ip_protocol = "tcp"
     cidr        = "127.0.0.1/32"
   }
+
 }
