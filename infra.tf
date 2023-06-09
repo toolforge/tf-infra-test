@@ -58,7 +58,7 @@ resource "openstack_containerinfra_clustertemplate_v1" "template_123" {
 
 resource "openstack_compute_instance_v2" "vm" {
   name            = "testlabs-tf"
-  image_id        = "e69cb6f7-e5c7-41de-b08d-8e5739c20de3" # update to lookup
+  image_id        = data.openstack_images_image_v2.debian.id
   flavor_id       = "bb8bee7e-d8f9-460b-8344-74f745c139b9" # update to lookup?
 
   network {

@@ -93,3 +93,9 @@ variable "db_size" {
     "eqiad1"    = "4"
   }
 }
+
+# vm vars
+data "openstack_images_image_v2" "debian" {
+  most_recent = true
+  name        = "debian-11.0-bullseye"
+}
