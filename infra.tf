@@ -55,16 +55,6 @@ resource "openstack_db_instance_v1" "db_123" {
   }
 }
 
-resource "openstack_compute_instance_v2" "vm" {
-  name            = "testlabs-tf"
-  image_id        = data.openstack_images_image_v2.debian.id
-  flavor_id       = "bb8bee7e-d8f9-460b-8344-74f745c139b9" # update to lookup?
-
-  network {
-    name = "${var.fixed_subnet[var.datacenter]}"
-  }
-}
-
 resource "openstack_blockstorage_volume_v3" "volume" {
   region      = "${var.region[var.datacenter]}"
   name        = "volume_tf"
@@ -83,5 +73,4 @@ resource "openstack_compute_secgroup_v2" "secgroup" {
     ip_protocol = "tcp"
     cidr        = "127.0.0.1/32"
   }
-
 }
