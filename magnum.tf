@@ -19,14 +19,14 @@ variable "external_network_id" {
     "eqiad1"    = "wan-transport-eqiad"
   }
 }
-variable "fixed_subnet" {
+variable "fixed_network" {
   type = map
   default = {
     "codfw1dev" = "cloud-instances2-b-codfw"
     "eqiad1"    = "lan-flat-cloudinstances2b"
   }
 }
-variable "fixed_network" {
+variable "fixed_subnet" {
   type = map
   default = {
     "codfw1dev" = "lan-flat-cloudinstances2b"
@@ -42,12 +42,12 @@ variable "image_name" {
 }
 
 # T333874
-#resource "openstack_containerinfra_cluster_v1" "k8s_123" {
-#  name                = "paws-123"
-#  cluster_template_id = resource.openstack_containerinfra_clustertemplate_v1.template_123.id
-#  master_count        = 1
-#  node_count          = 1
-#}
+resource "openstack_containerinfra_cluster_v1" "k8s_123" {
+  name                = "testlabs-123"
+  cluster_template_id = resource.openstack_containerinfra_clustertemplate_v1.template_123.id
+  master_count        = 1
+  node_count          = 1
+}
 
 resource "openstack_containerinfra_clustertemplate_v1" "template_123" {
   name                  = "testlabs-123"
