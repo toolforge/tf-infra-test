@@ -10,6 +10,6 @@ resource "openstack_compute_instance_v2" "vm" {
   security_groups = ["${openstack_compute_secgroup_v2.secgroup.name}"]
 
   network {
-    name = "${var.fixed_network[var.datacenter]}"
+    name = var.fixed_network[var.datacenter]
   }
 }

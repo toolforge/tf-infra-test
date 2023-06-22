@@ -4,6 +4,6 @@ resource "openstack_networking_floatingip_v2" "floating_ip" {
 }
 
 resource "openstack_compute_floatingip_associate_v2" "floating_ip" {
-  floating_ip = "${openstack_networking_floatingip_v2.floating_ip.address}"
-  instance_id = "${resource.openstack_compute_instance_v2.vm.id}"
+  floating_ip = openstack_networking_floatingip_v2.floating_ip.address
+  instance_id = resource.openstack_compute_instance_v2.vm.id
 }
