@@ -15,6 +15,6 @@ variable "application_credential_id" {
   type = map(any)
   default = {
     "codfw1dev" = "<needed>"
-    "eqiad1"    = "ab79da04abd64da3ae563926eee7e66b"
+    "eqiad1"    = "53e844d312eb40fb9c837d9bcc469b27"
   }
 }

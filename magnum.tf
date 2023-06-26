@@ -2,7 +2,7 @@ variable "worker_flavor" {
   type = map(any)
   default = {
     "codfw1dev" = "g3.cores1.ram2.disk20"
-    "eqiad1"    = "g3.cores8.ram32.disk20"
+    "eqiad1"    = "g3.cores1.ram2.disk20"
   }
 }
 variable "control_flavor" {
@@ -43,14 +43,14 @@ variable "image_name" {
 
 # T333874
 resource "openstack_containerinfra_cluster_v1" "k8s_123" {
-  name                = "testlabs-123"
+  name                = "tf-infra-test-123"
   cluster_template_id = resource.openstack_containerinfra_clustertemplate_v1.template_123.id
   master_count        = 1
   node_count          = 1
 }
 
 resource "openstack_containerinfra_clustertemplate_v1" "template_123" {
-  name                  = "testlabs-123"
+  name                  = "tf-infra-test-123"
   coe                   = "kubernetes"
   dns_nameserver        = "8.8.8.8"
   docker_storage_driver = "overlay2"
