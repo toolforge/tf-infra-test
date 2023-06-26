@@ -23,7 +23,7 @@ variable "db_size" {
   type = map(any)
   default = {
     "codfw1dev" = "1"
-    "eqiad1"    = "4"
+    "eqiad1"    = "2"
   }
 }
 
@@ -38,7 +38,7 @@ resource "openstack_db_instance_v1" "postgresql" {
   }
 
   user {
-    name      = "testlabs"
+    name      = "infra"
     host      = "%"
     password  = "notapassword"
     databases = ["tf-postgresql"]
@@ -65,7 +65,7 @@ resource "openstack_db_instance_v1" "mysql" {
   }
 
   user {
-    name      = "testlabs"
+    name      = "infra"
     host      = "%"
     password  = "notapassword"
     databases = ["tf-mysql"]
@@ -92,7 +92,7 @@ resource "openstack_db_instance_v1" "mariadb" {
   }
 
   user {
-    name      = "testlabs"
+    name      = "infra"
     host      = "%"
     password  = "notapassword"
     databases = ["tf-mariadb"]
