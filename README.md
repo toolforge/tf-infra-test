@@ -3,6 +3,9 @@
 This code can be used to test that we can deploy all the infrastructure that we expect to be able to.
 
 # Usage
+The terraform-test.sh script should be referenced from a cron that has write access to /var/lib/prometheus/node.d/
+
+This can also be run manually by running
 ```
 terraform init
 terraform apply
