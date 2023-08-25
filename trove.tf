@@ -26,6 +26,27 @@ variable "db_size" {
     "eqiad1"    = "2"
   }
 }
+variable "maria_version" {
+  type = map(any)
+  default = {
+    "codfw1dev" = "10.6.1"
+    "eqiad1"    = "10.5.10"
+  }
+}
+variable "mysql_version" {
+  type = map(any)
+  default = {
+    "codfw1dev" = "5.7.29"
+    "eqiad1"    = "5.7.29"
+  }
+}
+variable "psql_version" {
+  type = map(any)
+  default = {
+    "codfw1dev" = "13.3"
+    "eqiad1"    = "12.7"
+  }
+}
 
 resource "openstack_db_instance_v1" "postgresql" {
   region    = var.region[var.datacenter]
@@ -49,7 +70,7 @@ resource "openstack_db_instance_v1" "postgresql" {
   }
 
   datastore {
-    version = "12.7"
+    version = var.psql_version[var.datacenter]
     type    = "postgresql"
   }
 }
@@ -76,7 +97,7 @@ resource "openstack_db_instance_v1" "mysql" {
   }
 
   datastore {
-    version = "5.7.29"
+    version = var.mysql_version[var.datacenter]
     type    = "mysql"
   }
 }
@@ -103,7 +124,7 @@ resource "openstack_db_instance_v1" "mariadb" {
   }
 
   datastore {
-    version = "10.5.10"
+    version = var.maria_version[var.datacenter]
     type    = "mariadb"
   }
 }
