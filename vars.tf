@@ -1,6 +1,5 @@
 variable "datacenter" {
-  type    = string
-  default = "eqiad1"
+  type = string
 }
 
 # connection vars
@@ -14,7 +13,14 @@ variable "auth-url" {
 variable "application_credential_id" {
   type = map(any)
   default = {
-    "codfw1dev" = "<needed>"
+    "codfw1dev" = "2160edfdfdfd4a14abd29feb903a35a2"
     "eqiad1"    = "53e844d312eb40fb9c837d9bcc469b27"
+  }
+}
+variable "project" {
+  type = map(any)
+  default = {
+    "codfw1dev" = "tf-infra-dev"
+    "eqiad1"    = "tf-infrat-test"
   }
 }

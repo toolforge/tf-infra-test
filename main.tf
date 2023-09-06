@@ -15,14 +15,14 @@ terraform {
 
 provider "openstack" {
   auth_url                      = var.auth-url[var.datacenter]
-  tenant_id                     = "tf-infra-test"
+  tenant_id                     = var.project[var.datacenter]
   application_credential_id     = var.application_credential_id[var.datacenter]
   application_credential_secret = var.application_credential_secret[var.datacenter]
 }
 
 provider "cloudvps" {
   os_auth_url                      = var.auth-url[var.datacenter]
-  os_project_id                    = "tf-infra-test"
+  os_project_id                    = var.project[var.datacenter]
   os_application_credential_id     = var.application_credential_id[var.datacenter]
   os_application_credential_secret = var.application_credential_secret[var.datacenter]
 }

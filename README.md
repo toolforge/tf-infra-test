@@ -7,14 +7,14 @@ The terraform-test.sh script should be referenced from a cron that has write acc
 
 Example:
 ```
-0 0 * * * cd /root/tf-infra-test ; /bin/bash /root/tf-infra-test/terraform-test.sh
+0 0 * * * cd /root/tf-infra-test ; /bin/bash /root/tf-infra-test/terraform-test.sh <eqiad1|codfw1dev>
 ```
 
 This can also be run manually by running
 ```
 terraform init
-terraform apply
-terraform destroy
+terraform apply -var datacenter=<eqiad1|codfw1dev>
+terraform destroy -var datacenter=<eqiad1|codfw1dev>
 ```
 
 # Tests at time of writing
@@ -26,7 +26,7 @@ terraform destroy
 - Trove (Postgresql) deploy
 - Floating IP allocation
 - Floating IP attachment to VM
-- Magnum cluster deploy # T333874
+- Magnum cluster deploy
 - Magnum cluster template deploy
 - Security group deploy
 - Security group attachment to VM

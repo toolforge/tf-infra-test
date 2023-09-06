@@ -22,14 +22,14 @@ variable "external_network_id" {
 variable "fixed_network" {
   type = map(any)
   default = {
-    "codfw1dev" = "cloud-instances2-b-codfw"
+    "codfw1dev" = "lan-flat-cloudinstances2b"
     "eqiad1"    = "lan-flat-cloudinstances2b"
   }
 }
 variable "fixed_subnet" {
   type = map(any)
   default = {
-    "codfw1dev" = "lan-flat-cloudinstances2b"
+    "codfw1dev" = "cloud-instances2-b-codfw"
     "eqiad1"    = "cloud-instances2-b-eqiad"
   }
 }
@@ -41,7 +41,6 @@ variable "image_name" {
   }
 }
 
-# T333874
 resource "openstack_containerinfra_cluster_v1" "k8s_123" {
   name                = "tf-infra-test-123"
   cluster_template_id = resource.openstack_containerinfra_clustertemplate_v1.template_123.id
@@ -54,7 +53,7 @@ resource "openstack_containerinfra_clustertemplate_v1" "template_123" {
   coe                   = "kubernetes"
   dns_nameserver        = "8.8.8.8"
   docker_storage_driver = "overlay2"
-  docker_volume_size    = "20"
+  docker_volume_size    = "10"
   external_network_id   = var.external_network_id[var.datacenter]
   fixed_subnet          = var.fixed_subnet[var.datacenter]
   fixed_network         = var.fixed_network[var.datacenter]
