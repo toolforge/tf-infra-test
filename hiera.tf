@@ -1,9 +1,9 @@
-resource "cloudvps_puppet_prefix" "terraform" {
-  name = "terraform-"
+resource "cloudvps_puppet_prefix" "tofu" {
+  name = "tofu-"
 
   roles = [
-    "profile::terraform::tf"
+    "profile::tofu::tf"
   ]
 
-  hiera = file("hiera-terraform.yaml")
+  hiera = file("hiera-tofu.yaml")
 }

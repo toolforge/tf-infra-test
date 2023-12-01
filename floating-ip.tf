@@ -1,6 +1,6 @@
 resource "openstack_networking_floatingip_v2" "floating_ip" {
   pool        = var.floating-ip-pool[var.datacenter]
-  description = "terraform test IP"
+  description = "tofu test IP"
 }
 
 resource "openstack_compute_floatingip_associate_v2" "floating_ip" {

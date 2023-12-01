@@ -3,18 +3,19 @@
 This code can be used to test that we can deploy all the infrastructure that we expect to be able to.
 
 # Usage
-The terraform-test.sh script should be referenced from a cron that has write access to /var/lib/prometheus/node.d/
+The tofu-test.sh script should be referenced from a cron that has write access to /var/lib/prometheus/node.d/
 
 Example:
 ```
-0 0 * * * cd /root/tf-infra-test ; /bin/bash /root/tf-infra-test/terraform-test.sh <eqiad1|codfw1dev>
+0 0 * * * cd /root/tf-infra-test ; /bin/bash /root/tf-infra-test/tofu-test.sh <eqiad1|codfw1dev>
+0 0 * * * systemd-cat -t tf-infra-test /root/tf-infra-test/tofu-test.sh <eqiad1|codfw1dev> # apparently this is the one now (20231201)
 ```
 
 This can also be run manually by running
 ```
-terraform init
-terraform apply -var datacenter=<eqiad1|codfw1dev>
-terraform destroy -var datacenter=<eqiad1|codfw1dev>
+tofu init
+tofu apply -var datacenter=<eqiad1|codfw1dev>
+tofu destroy -var datacenter=<eqiad1|codfw1dev>
 ```
 
 # Tests at time of writing
