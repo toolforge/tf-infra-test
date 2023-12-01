@@ -1,6 +1,6 @@
 resource "openstack_compute_secgroup_v2" "secgroup" {
-  name        = "terraform-test"
-  description = "security group deployed by terraform"
+  name        = "tofu-test"
+  description = "security group deployed by tofu"
 
   rule {
     from_port   = 22
