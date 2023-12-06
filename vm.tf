@@ -7,7 +7,7 @@ resource "openstack_compute_instance_v2" "vm" {
   name            = "tf-infra-test"
   image_id        = data.openstack_images_image_v2.debian.id
   flavor_id       = var.flavor_id[var.datacenter] # update to lookup?
-  security_groups = ["${openstack_compute_secgroup_v2.secgroup.name}"]
+  security_groups = ["${openstack_compute_secgroup_v2.secgroup.name}", "default"]
 
   network {
     name = var.fixed_network[var.datacenter]
