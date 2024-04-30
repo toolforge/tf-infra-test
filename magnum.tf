@@ -41,15 +41,15 @@ variable "image_name" {
   }
 }
 
-resource "openstack_containerinfra_cluster_v1" "k8s_123" {
-  name                = "tf-infra-test-123"
-  cluster_template_id = resource.openstack_containerinfra_clustertemplate_v1.template_123.id
+resource "openstack_containerinfra_cluster_v1" "k8s_126" {
+  name                = "tf-infra-test-126"
+  cluster_template_id = resource.openstack_containerinfra_clustertemplate_v1.template_126.id
   master_count        = 1
   node_count          = 1
 }
 
-resource "openstack_containerinfra_clustertemplate_v1" "template_123" {
-  name                  = "tf-infra-test-123"
+resource "openstack_containerinfra_clustertemplate_v1" "template_126" {
+  name                  = "tf-infra-test-126"
   coe                   = "kubernetes"
   dns_nameserver        = "8.8.8.8"
   docker_storage_driver = "overlay2"
@@ -64,8 +64,11 @@ resource "openstack_containerinfra_clustertemplate_v1" "template_123" {
   network_driver        = "flannel"
 
   labels = {
-    kube_tag               = "v1.23.15-rancher1-linux-amd64"
-    hyperkube_prefix       = "docker.io/rancher/"
-    cloud_provider_enabled = "true"
+    kube_tag                  = "v1.26.8-rancher1"
+    container_runtime         = "containerd"
+    containerd_version        = "1.6.20"
+    containerd_tarball_sha256 = "1d86b534c7bba51b78a7eeb1b67dd2ac6c0edeb01c034cc5f590d5ccd824b416"
+    hyperkube_prefix          = "docker.io/rancher/"
+    cloud_provider_enabled    = "true"
   }
 }
