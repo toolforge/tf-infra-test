@@ -14,13 +14,13 @@ variable "application_credential_id" {
   type = map(any)
   default = {
     "codfw1dev" = "2160edfdfdfd4a14abd29feb903a35a2"
-    "eqiad1"    = "96017b958d5341b9a5903e7e611fe59c"
+    "eqiad1"    = "a9b00a35d1ba429186c463a1151bf0ea"
   }
 }
 variable "project" {
   type = map(any)
   default = {
     "codfw1dev" = "tf-infra-dev"
-    "eqiad1"    = "tf-infrat-test"
+    "eqiad1"    = "tofuinfratest"
   }
 }
