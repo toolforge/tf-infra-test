@@ -21,6 +21,6 @@ variable "project" {
   type = map(any)
   default = {
     "codfw1dev" = "tf-infra-dev"
-    "eqiad1"    = "tf-infrat-test"
+    "eqiad1"    = "tofuinfratest"
   }
 }
