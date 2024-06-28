@@ -8,8 +8,8 @@ variable "network_uuid" {
 variable "db_flavor_uuid" {
   type = map(any)
   default = {
-    "codfw1dev" = "5b2ca632-2ea0-4007-9b40-4f84f8e2428b"
-    "eqiad1"    = "55d5d90f-c5c6-44ff-bb8a-be7b077481cf"
+    "codfw1dev" = "b1c8399c-87da-4262-86af-dfb6552e550e"
+    "eqiad1"    = "b204f489-f1a5-4d91-9a11-af1ae8b66bea"
   }
 }
 variable "region" {
