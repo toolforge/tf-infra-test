@@ -29,7 +29,7 @@ variable "db_size" {
 variable "maria_version" {
   type = map(any)
   default = {
-    "codfw1dev" = "10.6.1"
+    "codfw1dev" = "10.5.10"
     "eqiad1"    = "10.5.10"
   }
 }
@@ -43,7 +43,7 @@ variable "mysql_version" {
 variable "psql_version" {
   type = map(any)
   default = {
-    "codfw1dev" = "13.3"
+    "codfw1dev" = "12.7"
     "eqiad1"    = "12.7"
   }
 }
