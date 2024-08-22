@@ -17,7 +17,7 @@ resource "openstack_compute_instance_v2" "vm" {
 variable "flavor_id" {
   type = map(any)
   default = {
-    "codfw1dev" = "2be1dcfd-f5aa-4772-a097-6e65363e0710"
+    "codfw1dev" = "0e38db8b-e6bb-49e1-82d8-e38a4e914caa"
     "eqiad1"    = "8a752ca3-bffa-4fb3-b70f-30f6e29bc5cd"
   }
 }
