@@ -41,15 +41,15 @@ variable "image_name" {
   }
 }
 
-resource "openstack_containerinfra_cluster_v1" "k8s_126" {
-  name                = "tf-infra-test-126"
-  cluster_template_id = resource.openstack_containerinfra_clustertemplate_v1.template_126.id
+resource "openstack_containerinfra_cluster_v1" "k8s_127a" {
+  name                = "tf-infra-test-127a"
+  cluster_template_id = resource.openstack_containerinfra_clustertemplate_v1.template_127a.id
   master_count        = 1
   node_count          = 1
 }
 
-resource "openstack_containerinfra_clustertemplate_v1" "template_126" {
-  name                  = "tf-infra-test-126"
+resource "openstack_containerinfra_clustertemplate_v1" "template_127a" {
+  name                  = "tf-infra-test-127a"
   coe                   = "kubernetes"
   dns_nameserver        = "8.8.8.8"
   docker_storage_driver = "overlay2"
@@ -64,12 +64,15 @@ resource "openstack_containerinfra_clustertemplate_v1" "template_126" {
   network_driver        = "flannel"
 
   labels = {
-    kube_tag                  = "v1.26.8-rancher1"
-    container_runtime         = "containerd"
-    containerd_version        = "1.6.20"
-    containerd_tarball_sha256 = "1d86b534c7bba51b78a7eeb1b67dd2ac6c0edeb01c034cc5f590d5ccd824b416"
-    hyperkube_prefix          = "docker.io/rancher/"
-    cloud_provider_enabled    = "true"
+    kube_tag                       = "v1.27.8-rancher2"
+    container_runtime              = "containerd"
+    containerd_tarball_sha256      = "f70736e52d61e5ad225f4fd21643b5ca1220013ab8b6c380434caeefb572da9b"
+    cloud_provider_tag             = "v1.27.3"
+    cinder_csi_plugin_tag          = "v1.27.3"
+    k8s_keystone_auth_tag          = "v1.27.3"
+    magnum_auto_healer_tag         = "v1.27.3"
+    octavia_ingress_controller_tag = "v1.27.3"
+    calico_tag                     = "v3.26.4"
   }
 }
 
