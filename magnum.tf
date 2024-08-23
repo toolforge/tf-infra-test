@@ -61,7 +61,7 @@ resource "openstack_containerinfra_clustertemplate_v1" "template_127a" {
   floating_ip_enabled   = "false"
   image                 = var.image_name[var.datacenter]
   master_flavor         = var.control_flavor[var.datacenter]
-  network_driver        = "flannel"
+  network_driver        = "calico"
 
   labels = {
     kube_tag                       = "v1.27.8-rancher2"
