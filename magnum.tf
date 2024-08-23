@@ -37,7 +37,7 @@ variable "image_name" {
   type = map(any)
   default = {
     "codfw1dev" = "Fedora-CoreOS-34"
-    "eqiad1"    = "magnum-fedora-coreos-34"
+    "eqiad1"    = "Fedora-CoreOS-38"
   }
 }
 
