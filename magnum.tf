@@ -72,10 +72,10 @@ resource "openstack_containerinfra_clustertemplate_v1" "template_127a" {
     cinder_csi_plugin_tag          = "v1.27.3"
     k8s_keystone_auth_tag          = "v1.27.3"
     magnum_auto_healer_tag         = "v1.27.3"
-    octavia_ingress_controller_tag = "v1.27.3"
     calico_tag                     = "v3.26.4"
   }
 }
+#    octavia_ingress_controller_tag = "v1.27.3"
 
 #kube_tag=v1.27.8-rancher2
 #container_runtime=containerd
