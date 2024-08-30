@@ -13,7 +13,7 @@ variable "auth-url" {
 variable "application_credential_id" {
   type = map(any)
   default = {
-    "codfw1dev" = "2160edfdfdfd4a14abd29feb903a35a2"
+    "codfw1dev" = "b9ffa7c335df450d8be3869d934bdb32"
     "eqiad1"    = "96017b958d5341b9a5903e7e611fe59c"
   }
 }
